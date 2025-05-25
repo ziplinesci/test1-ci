@@ -1,0 +1,37 @@
+labels:
+  app: repo-test-ci
+  team: shadi
+  language: bash
+
+stages:
+  prepare:
+    parallelStages:
+      format:
+        image: alpine:latest
+        commands:
+          - echo 'Format me'
+      lint:
+        image: alpine:latest
+        commands:
+          - echo 'Lint me'
+      test:
+        image: alpine:latest
+        commands:
+          - echo 'Test me'
+      dependency-scanning:
+        image: alpine:latest
+        commands:
+          - echo 'Scan dependency security me'
+
+  build:
+    image: alpine:latest
+    commands:
+      - echo 'Build me'
+  bake:
+    image: alpine:latest
+    commands:
+      - echo 'Bake Image'
+  push:
+    image: alpine:latest
+    commands:
+      - echo 'Push image'
